@@ -19,6 +19,7 @@ const Engine = function (time_step, update, render) {
     this.render = render; // The render function
 
     this.run = function (time_stamp) { // This is one cycle of the game loop
+        this.animation_frame_request = window.requestAnimationFrame(this.handleRun);
 
         this.accumulated_time += time_stamp - this.time;
         this.time = time_stamp;
@@ -50,7 +51,6 @@ const Engine = function (time_step, update, render) {
             this.render(time_stamp);
         }
 
-        this.animation_frame_request = window.requestAnimationFrame(this.handleRun);
 
     };
 
